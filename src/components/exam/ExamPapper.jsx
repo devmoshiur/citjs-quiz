@@ -1,9 +1,9 @@
-import React, { useState } from "react";
+import React from "react";
 import "./ExamPapper.css";
 // import QuestionCard from "./QuestionCard";
 
 function ExamPapper() {
-  const [questions, setQuestions] = useState([
+  const questions = [
     {
       qname: "What is your favourite topic?",
       A: "HTML",
@@ -20,7 +20,23 @@ function ExamPapper() {
       D: "Real-time",
       correctAnswer: "A",
     },
-  ]);
+  ];
+
+  // const [formData, setFormData] = useState([
+  //   {
+  //     qname: "",
+  //     A: "",
+  //     B: "",
+  //     C: "",
+  //     D: "",
+  //     correctAnswer: "A",
+  //   },
+  // ]);
+
+  const submitedAnswer = (event) => {
+    event.preventDefault();
+    console.log(event);
+  };
 
   return (
     <div className="container">
@@ -29,24 +45,24 @@ function ExamPapper() {
           <h4>20:21</h4>
         </div>
       </div>
-      <form>
+      <form onSubmit={submitedAnswer}>
         {questions.map((question, index) => (
           <div key={index} className="card">
             <div className="card-content">
               <span className="card-title black-text">
-                <h5>{question.qname}</h5>
+                <h5>{index + 1 + ". " + question.qname}</h5>
               </span>
               <div className="row">
                 <div className="col s12 m6">
                   <p>
                     <label>
-                      <input name={index} type="radio" />
+                      <input name={index} type="radio" value={question.A} />
                       <span>{"A. " + question.A}</span>
                     </label>
                   </p>
                   <p>
                     <label>
-                      <input name={index} type="radio" />
+                      <input name={index} type="radio" value={question.B} />
                       <span>{"B. " + question.B}</span>
                     </label>
                   </p>
@@ -54,13 +70,13 @@ function ExamPapper() {
                 <div className="col s12 m6">
                   <p>
                     <label>
-                      <input name={index} type="radio" />
+                      <input name={index} type="radio" value={question.C} />
                       <span>{"C. " + question.C}</span>
                     </label>
                   </p>
                   <p>
                     <label>
-                      <input name={index} type="radio" />
+                      <input name={index} type="radio" value={question.D} />
                       <span>{"D. " + question.D}</span>
                     </label>
                   </p>
@@ -71,7 +87,7 @@ function ExamPapper() {
         ))}
 
         <div className="input-form">
-          <button type="submit" class="waves-effect waves-light btn">
+          <button type="submit" className="waves-effect waves-light btn">
             Submit
           </button>
         </div>
