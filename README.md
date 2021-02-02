@@ -1,6 +1,6 @@
-# Getting Started with Create React App
+# Introduction to develope this quiz apps
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+This is a quiz sytem developed by [https://solvepanda.com](Solvepanda). The main quiz woner is Compact IT Job Solution (CIJS). This reprository only for development purpose. So if you are not a authentic developer in this project, i will request to you don't try. 
 
 ## Available Scripts
 
